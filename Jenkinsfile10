@@ -13,6 +13,7 @@ pipeline {
             steps {
                 echo 'Hello Test'
                git branch: 'main', credentialsId: '59e4642e-5167-479d-9814-eb1ef8f8038d', url: 'https://github.com/bkarthik5/Selenium.git'
+               sh "mvn clean install"
             }
         }
          stage('Preprod') {
