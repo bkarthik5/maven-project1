@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Develop') {
+            steps {
+                echo 'Hello Dev'
+                git branch: 'main', credentialsId: '59e4642e-5167-479d-9814-eb1ef8f8038d', url: 'https://github.com/bkarthik5/batch93.git'
+               
+            }
+        }
+         stage('Test') {
+            steps {
+                echo 'Hello Test'
+               git branch: 'main', credentialsId: '59e4642e-5167-479d-9814-eb1ef8f8038d', url: 'https://github.com/bkarthik5/Selenium.git'
+            }
+        }
+         stage('Preprod') {
+            steps {
+                deploy adapters: [tomcat9(credentialsId: '53b4bdb3-9fb2-4828-a2e9-c5431c142017', path: '', url: 'http://192.168.247.130:8081/')], contextPath: 'Devops93.war', war: '**/*.war'
+            }
+        }
+          stage('Prod') {
+            steps {
+                echo 'Hello Prod'
+            }
+        }
+    }
