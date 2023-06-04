@@ -27,8 +27,9 @@ pipeline {
         }
           stage('Prod') {
             steps {
-                echo 'Hello PreProd'
-                deploy adapters: [tomcat9(credentialsId: '53b4bdb3-9fb2-4828-a2e9-c5431c142017', path: '', url: 'http://192.168.247.130:8081/')], contextPath: 'devops93.war', war: '**/*.war'
+                echo 'Hello Prod'
+                
+               deploy adapters: [tomcat9(credentialsId: '53b4bdb3-9fb2-4828-a2e9-c5431c142017', path: '', url: 'http://192.168.247.130:8081/')], contextPath: 'pipelinedevops93.war', war: '**/*.war'
             }
         }
     }
