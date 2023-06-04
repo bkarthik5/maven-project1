@@ -1,13 +1,13 @@
 pipeline {
     agent any
         environment {
-        PATH= "/opt/Maven/apache-maven-3.9.1/bin:$PATH"
+        PATH= "/opt/maven/apache-maven-3.9.1/bin:$PATH"
     }
     stages {
         stage('Develop') {
             steps {
                 echo 'Hello Dev'
-                git branch: 'main', credentialsId: '59e4642e-5167-479d-9814-eb1ef8f8038d', url: 'https://github.com/bkarthik5/batch93.git'
+               git branch: 'main', credentialsId: '59e4642e-5167-479d-9814-eb1ef8f8038d', url: 'https://github.com/bkarthik5/Selenium.git'
                
             }
         }
