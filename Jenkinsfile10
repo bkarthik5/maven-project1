@@ -21,7 +21,8 @@ pipeline {
         }
          stage('Preprod') {
             steps {
-                echo 'Hello PreProd'
+            build quietPeriod: 5,
+                echo 'Preparing for Preprod checks ..'
                 
             }
         }
