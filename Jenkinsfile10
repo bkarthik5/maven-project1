@@ -28,7 +28,8 @@ pipeline {
           stage('Prod') {
             steps {
                 echo 'Hello Prod'
-                
+                git credentialsId: '59e4642e-5167-479d-9814-eb1ef8f8038d', url: 'https://github.com/bkarthik5/maven-project1.git'
+                sh "mvn clean install"
                deploy adapters: [tomcat9(credentialsId: '53b4bdb3-9fb2-4828-a2e9-c5431c142017', path: '', url: 'http://192.168.247.130:8081/')], contextPath: 'devops93.war', war: '**/*.war'
             }
         }
